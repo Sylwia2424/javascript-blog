@@ -58,12 +58,11 @@ function generateTitleLinks(){
  		}
     /* get the article id */
 
-	const articleId = document.guertySelectorAll('section article');
+	const articlesList = document.getElementsById('article-01, article-02, article-03, article-04, article-05, article-06, article-07, article-08, article-09, article-10');
 		for (article  of articles){
-    	const id = document.getAttributeId('id');/*tu nie powinnam dać articleId?*/
-    	const title = getElementById('article-01, article-02, article-03, article-04, article-05, article-06, article-07, article-08, article-09, article-10');
-    	title.remowe();
-    	generateTitleLink(id, title);
+    		const id = document.getAttributeId('id');
+    		const title = getElementById('article-01, article-02, article-03, article-04, article-05, article-06, article-07, article-08, article-09, article-10');
+    		generateTitleLink(id, title);
 		}
 	
     /* find the title element */
