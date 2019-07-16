@@ -39,7 +39,7 @@ for(let link of links){
   link.addEventListener('click', titleClickHandler);
 
 }
-{
+
 const optArticleSelector = '.post',
   optTitleSelector = '.post-title',
   optTitleListSelector = '.titles';
@@ -58,8 +58,8 @@ function generateTitleLinks(){
  		}
  	
     /* get the article id */
-	const articleId = document.getAttribute('article-1, article-2, article-3, article-4, article-5, article-6, article-7, article-8, article-9, article-10'){
-		for(let article of articles)
+	const articleId = document.getAttribute('id .posts')
+
 	
     /* find the title element */
 	const articleTitle = article.querySelector(optTitleSelector).innerHTML;
@@ -76,4 +76,3 @@ function generateTitleLinks(){
 	titleList.innerHTML = html;
 }
 generateTitleLinks();
-}
