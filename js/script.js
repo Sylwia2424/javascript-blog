@@ -24,10 +24,10 @@ const titleClickHandler = function(event){
 
   /* get 'href' attribute from the clicked link */
 	const articleSelector = document.getAttribute('href a.active');
-	clickedElement.articleSelector('href')
+	clickedElement.articleSelector('href');
 
   /* find the correct article using the selector (value of 'href' attribute) */
-	const targetArticle = document.querySelector('href')
+	const targetArticle = document.querySelector('href');
 
   /* add class 'active' to the correct article */
 	console.log('targetArticle:', targetArticle);
@@ -56,23 +56,30 @@ function generateTitleLinks(){
  		for(let article of articles){
  			link.addEventListener('click', generateTitleLinks);
  		}
- 	
     /* get the article id */
-	const articleId = document.getAttribute('id .posts')
 
+	const articleId = document.guertySelectorAll('section article');
+		for (article  of articles){
+    	const id = document.getAttributeId('id');/*tu nie powinnam dać articleId?*/
+    	const title = getElementById('article-01, article-02, article-03, article-04, article-05, article-06, article-07, article-08, article-09, article-10');
+    	title.remowe();
+    	generateTitleLink(id, title);
+		}
 	
     /* find the title element */
 	const articleTitle = article.querySelector(optTitleSelector).innerHTML;
     
     /* get the title from the title element */
+	function generateTitleLink(id, title){    
     
     /* create HTML of the link */
 	const linkHTML = '<li><a href="#' + articleId +'"><span>' + articleTitle + '</span></a></li>'; 
     
     /* insert link into titleList */
     html = html + linkHTML;
+	
 	}
-
 	titleList.innerHTML = html;
+}
 }
 generateTitleLinks();
