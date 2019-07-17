@@ -58,7 +58,7 @@ function generateTitleLinks(){
  		}
     /* get the article id */
 
-	const articlesList = document.getElementsById('article-01, article-02, article-03, article-04, article-05, article-06, article-07, article-08, article-09, article-10');
+	const articlesList = document.getElementByTagName('article');
 		for (article  of articles){
     		const id = document.getAttributeId('id');
     		const title = getElementById('article-01, article-02, article-03, article-04, article-05, article-06, article-07, article-08, article-09, article-10');
