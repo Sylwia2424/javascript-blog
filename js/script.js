@@ -48,9 +48,10 @@ function generateTitleLink(articleId, articleTitle) {
 	return '<li><a href="#' + articleId +'"><span>' + articleTitle + '</span></a></li>'; 
 }
 
-function generateTitleLinks() {
+function generateTitleLinks(customSelector = '') {
   let htmlList = '';
-  const titleList = document.querySelector(titleListSelector);
+
+  const titleList = document.querySelector(titleListSelector + customSelector);
   titleList.innerHTML = '';
   const articlesList = document.getElementsByTagName('article');
   for (const article of articlesList) {
@@ -73,26 +74,14 @@ generateTitleLinks();
 console.log('articleTagsArray')
 
 function generateTags(){
-  /* find all articles */
   const articlesList = document.getElementsByTagName('article');
   for (const article of articlesList) {
-  /* START LOOP: for every article: */
-    /* find tags wrapper */
   const tagsList = article.querySelector(articleTagsSelector);
-    /* make html variable with empty string */
   let htmlList = '';
 	return '<li><a href="#' + articleTags +'"><span>' + articleTitleTags + '</span></a></li>'; 
 		}
-
 }
-    /* get tags from data-tags attribute */
-    /* split tags into array */
-    /* START LOOP: for each tag */
-      /* generate HTML of the link */
-      /* add generated code to html variable */
-    /* END LOOP: for each tag */
-    /* insert HTML of all the links into the tags wrapper */
-  /* END LOOP: for every article: */
+
   	tagsList.innerHTML = htmlList;
 }
 
@@ -104,3 +93,4 @@ function addClickListenersToTags(){
 const activeLinksTags = quertySelectorAll('a.active[href^="#tag-"]')
 const tag = href.replace('#tag-', '');
 }
+generateaddClickListenersToTags()
