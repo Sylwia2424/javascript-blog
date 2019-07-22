@@ -61,9 +61,56 @@ function generateTitleLinks(customSelector = '') {
   }
 	titleList.innerHTML = htmlList;
 }
-generateTitleLinks();
 
+generateTitleLinks();
+function generateTagLink() {
+	return '<li><a href="#' + articleTags +'"><span>' + tag + '</span></a></li>'; 
+}
+
+function generateTags(){
+  /* find all articles */
+  const articlesList = document.getElementsByTagName('article');
+  for (const article of articlesList) {
+  	  let htmlList = '';
+
+	const articleTags = article.querySelectorAll('dataTags');
+	const articleTagsArray = articleTags.split(' ');
+	for (let tag of articleTagsArray){
+    htmlList += generateTagLink(tag);
+
+	}
+
+  /* find the correct article using the selector (value of 'href' attribute) */
+
+    console.log('tag')
+
+}
+  /* START LOOP: for every article: */
+
+    /* find tags wrapper */
+    /* make html variable with empty string */
+    /* get tags from data-tags attribute */
+    /* split tags into array */
+    /* START LOOP: for each tag */
+
+      /* generate HTML of the link */
+
+      /* add generated code to html variable */
+
+    /* END LOOP: for each tag */
+
+    /* insert HTML of all the links into the tags wrapper */
+
+  /* END LOOP: for every article: */
+}
+
+generateTags();
 	function tagClickHandler(event){
+		event.preventDefault();
+		const clickedArticle = this;
+		}
+
+/*	function tagClickHandler(event){
 		event.preventDefault();
 		const clickedArticle = this;
 		const articleTags = article.getAttribute('data-tags');
@@ -79,7 +126,7 @@ function generateTags(){
   let htmlList = '';
   tagsList.innerHTML = '';
 
-	return '<li><a href="#' + data-tags +'"><span>' + tagsList + '</span></a></li>'; 
+	return '<li><a href="#' + dataTags +'"><span>' + tagsList + '</span></a></li>'; 
 		}
 }
 
@@ -95,3 +142,15 @@ const activeLinksTags = quertySelectorAll('a.active[href^="#tag-"]')
 const tag = href.replace('#tag-', '');
 }
 generateaddClickListenersToTags()
+
+
+/* generateAuthor(){
+
+
+  const author = article.querySelector('.post-author');
+  post-author.innerHTML = '';
+  const articlesAuthorList = document.getElementsByTagName('data-author');
+  for (const author of articlesAuthorList) {
+console.log('author')
+}
+generateAuthor();*/
