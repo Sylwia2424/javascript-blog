@@ -71,37 +71,17 @@ function generateTags(){
   /* find all articles */
   const articlesList = document.getElementsByTagName('article');
   for (const article of articlesList) {
-  	  let htmlList = '';
 
-	const articleTags = article.querySelectorAll('dataTags');
-	const articleTagsArray = articleTags.split(' ');
+	const articleTags = article.getAttribute('data-Tags');
+	let htmlList = '';
+
+const articleTagsArray = articleTags.split(' ');
 	for (let tag of articleTagsArray){
-    htmlList += generateTagLink(tag);
-
-	}
-
-  /* find the correct article using the selector (value of 'href' attribute) */
-
-    console.log('tag')
-
+   htmlList += generateTagLink();
 }
-  /* START LOOP: for every article: */
-
-    /* find tags wrapper */
-    /* make html variable with empty string */
-    /* get tags from data-tags attribute */
-    /* split tags into array */
-    /* START LOOP: for each tag */
-
-      /* generate HTML of the link */
-
-      /* add generated code to html variable */
-
-    /* END LOOP: for each tag */
-
-    /* insert HTML of all the links into the tags wrapper */
-
-  /* END LOOP: for every article: */
+	    console.log('articleTags')
+}
+	tagsList.innerHTML = htmlList;
 }
 
 generateTags();
@@ -133,24 +113,24 @@ function generateTags(){
   	tagsList.innerHTML = htmlList;
 }
 
-generateTags();
+generateTags()*/
 generateTitleLinks('[data-tags~="' + tag + '"]');
 
 
-function addClickListenersToTags(){
-const activeLinksTags = quertySelectorAll('a.active[href^="#tag-"]')
+function addClickListenersToTags()
+const activeLinksTags = quertySelectorAll('a.active[href^="#tag-"]');
 const tag = href.replace('#tag-', '');
-}
-generateaddClickListenersToTags()
 
+generateaddClickListenersToTags();
 
-/* generateAuthor(){
+generateAuthor();
 
 
   const author = article.querySelector('.post-author');
   post-author.innerHTML = '';
   const articlesAuthorList = document.getElementsByTagName('data-author');
-  for (const author of articlesAuthorList) {
+  for (const author of articlesAuthorList) 
 console.log('author')
-}
-generateAuthor();*/
+
+
+generateAuthor();
