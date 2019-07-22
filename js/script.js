@@ -66,19 +66,20 @@ generateTitleLinks();
 	function tagClickHandler(event){
 		event.preventDefault();
 		const clickedArticle = this;
-		const tags = article.getAttribute('data-tags');
+		const articleTags = article.getAttribute('data-tags');
 		const articleTagsArray = articleTags.split(' ');
 		for(let tag of articleTagsArray){
 
 		}
-console.log('articleTagsArray')
 
 function generateTags(){
   const articlesList = document.getElementsByTagName('article');
   for (const article of articlesList) {
-  const tagsList = article.querySelector(articleTagsSelector);
+  const tagsList = article.querySelector(tagsListSelector);
   let htmlList = '';
-	return '<li><a href="#' + articleTags +'"><span>' + articleTitleTags + '</span></a></li>'; 
+  tagsList.innerHTML = '';
+
+	return '<li><a href="#' + data-tags +'"><span>' + tagsList + '</span></a></li>'; 
 		}
 }
 
