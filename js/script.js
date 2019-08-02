@@ -108,7 +108,9 @@ const links = article.querySelectorAll('a.active[href^="#tag-"]');
   /* find all tag links with "href" attribute equal to the "href" constant */
 const tagLinks = article.querySelectorAll(activeLink);
 console.log(clickedElement)
-
+for(href of tagLinks){
+	href.classList.add('active');
+}
   /* START LOOP: for each found tag link */
     /* add class active */
   /* END LOOP: for each found tag link */
