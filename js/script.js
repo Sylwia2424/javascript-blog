@@ -139,15 +139,14 @@ function generateAuthors(){
  	for (const article of articleList) {
   	const articleList = article.querySelector(articleAutorsSelector);
   	let htmlList = '';
-  	const articleAuthors = article.getAttribute('data-autor');
-  	for (const autor of articleAuthors){
-    	htmlList += generateAuthorLink(articleAutors, author);
-  	}
+  	const articleAuthors = article.getAttribute('data-author');
+    	htmlList += generateAuthorLink(articleAuthors, );
 
-	articlesList.innerHTML = htmlList;
 
-console.log('data-autor')
+console.log('data-author')
 }
+	articleList.innerHTML = htmlList;
+
 
 }
 generateAuthors();
