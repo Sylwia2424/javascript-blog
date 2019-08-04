@@ -129,17 +129,25 @@ const links = document.querySelectorAll('a.active[href^="#tag-"]');
 }
 
 addClickListenersToTags();
+function generateAuthorLink(articleAuthors, author) {
+	return '<li><a href="#tag' + articleAuthors +'"><span>' + author + '</span></a></li>'; 
+}
+
 
 function generateAuthors(){
-	const articlesList = document.getElementsByTagName('article');
- 	for (const article of articlesList) {
-  	const articlesList = article.querySelector(articleAutorsSelector);
+	const articleList = document.getElementsByTagName('article');
+ 	for (const article of articleList) {
+  	const articleList = article.querySelector(articleAutorsSelector);
   	let htmlList = '';
   	const articleAuthors = article.getAttribute('data-autor');
+  	for (const autor of articleAuthors){
+    	htmlList += generateAuthorLink(articleAutors, author);
+  	}
+
+	articlesList.innerHTML = htmlList;
 
 console.log('data-autor')
 }
-
 
 }
 generateAuthors();
