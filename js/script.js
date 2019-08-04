@@ -129,8 +129,8 @@ const links = document.querySelectorAll('a.active[href^="#tag-"]');
 }
 
 addClickListenersToTags();
-function generateAuthorLink(articleAuthors, author) {
-	return '<li><a href="#tag' + articleAuthors +'"><span>' + author + '</span></a></li>'; 
+function generateAuthorLink(articleId, author) {
+	return '<li><a href="#tag' + articleId +'"><span>' + author + '</span></a></li>'; 
 }
 
 
@@ -140,10 +140,12 @@ function generateAuthors(){
   	const articleList = article.querySelector(articleAutorsSelector);
   	let htmlList = '';
   	const articleAuthors = article.getAttribute('data-author');
-    	htmlList += generateAuthorLink(articleAuthors, );
+    const id = article.getAttribute('id');
+    const author = article.childNodes[1].innerHTML;
+    htmlList += generateAuthorLink(id, author);
 
 
-console.log('data-author')
+console.log('author')
 }
 	articleList.innerHTML = htmlList;
 
