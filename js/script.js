@@ -1,4 +1,8 @@
+
 'use strict';
+//const templates = {
+//	articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML)
+  //}
 
 const titleClickHandler = function (event) {
 	event.preventDefault();
@@ -48,6 +52,8 @@ const titleListSelector = '.titles',
 
 function generateTitleLink(articleId, articleTitle) {
 	return '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+//	const linkHTMLData = {id: articleId, title: articleTitle};
+//const linkHTML = templates.articleLink(linkHTMLData);
 }
 
 function generateTitleLinks(customSelector = '') {
@@ -143,9 +149,7 @@ function generateTags() {
 generateTags();
 
 function tagClickHandler(event) {
-	/* prevent default action for this event */
 	event.preventDefault();
-	/* make new constant named "clickedElement" and give it the value of "this" */
 	const clickedElement = this;
 	const articlesList = document.getElementsByTagName('article');
 	const href = clickedElement.getAttribute('href');
@@ -157,19 +161,9 @@ function tagClickHandler(event) {
 		console.log('active')
 	}
 
-	/* find all tag links with class active */
-	/* START LOOP: for each active tag link */
-	/* remove class active */
-	/* END LOOP: for each active tag link */
-	/* find all tag links with "href" attribute equal to the "href" constant */
 	const tagLinks = document.querySelectorAll(".list-horizontal a");
 	for (let tag of tagLinks) {
 		tag.classList.add('active');
-
-		/* START LOOP: for each found tag link */
-		/* add class active */
-		/* END LOOP: for each found tag link */
-		/* execute function "generateTitleLinks" with article selector as argument */
 
 	}
 	console.log(tag)
@@ -264,7 +258,17 @@ for(let i = 0; i < articles.length ;i++) {
 	
 	//
 }
-
+//const tagsParms = calculateTagsParams(tags)
+//console.log('tagsParams:', tagsParams)
+//for(let tag in tags){
+//	console.log(tag + ' is used ' + tags[tag] + ' times');
+//	if(tags[tag] > params.max){
+//		params.max = tags[tag];
+//	  }
+//	  if(tags[tag] . params.min){
+//		params.min = tags[tag];
+//	  }
+//  }
 for(let i = 0; i < countTags.length; i++){
 	tagsLinkList.innerHTML += `<li><a href="#">${countTags[i].name}</a> <span>(${countTags[i].count})</span></li>`
 }
