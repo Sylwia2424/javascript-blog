@@ -136,12 +136,6 @@ function generateTags() {
 			htmlList += generateTagLink(tag);
 		}
 		articlesList.innerHTML = htmlList;
-		//let allTags={}
-		//if(!allTags.hasOwnProperty(tag)){
-		//allTags[tag]=1;
-		//}else{
-		//	allTags[tag]++;
-		//}
 	}
 	const tagsAElements = document.querySelectorAll(".list-horizontal a")
 	for (let tag of tagsAElements) {
@@ -251,8 +245,9 @@ function calculateTagsParams(tags){
 }
 
 function calculateTagClass(count, params){
-
+	return '<li><a href="#' + count + '"><span>' + params + '</span></a></li>';
 }
+
 function generateTags(){
 	/* [NEW] create a new variable allTags with an empty array */
 	let allTags = {};
@@ -299,10 +294,12 @@ function generateTags(){
 	/*LOOP: for each tag in allTags: */
 	for (let tag in allTags){
 		/*Generate code of a link and add it to allTagsHTML*/
-		//allTagsHTML += tag + ' (' + allTags[tag] + ') ';
-		//const tagLinkHTML = '<li>' + calculateTagClass(allTags[tag], tagsParams) + '</li>';
-		//allTagsHTML += tagLinkHTML;
-		tagLinkHTML += '<li>' + calculateTagClass(allTags[tag], tagsParams) + '</li>';
+		allTagsHTML += tag + ' (' + allTags[tag] + ') ';
+		//class= "calculateTagClass";
+		const tagLinkHTML = '<li>' + calculateTagClass(allTags[tag], tagsParams) + '</li>';
+		allTagsHTML += tagLinkHTML;
+
+		//tagLinkHTML += '<li>' + calculateTagClass(allTags[tag], tagsParams) + '</li>';
 	}
 	tagList.innerHTML = allTagsHTML;
 
