@@ -173,9 +173,6 @@ function addClickListenersToTags() {
 		clickedElement.classList.add('active');
 		console.log('links')
 	}
-	/* START LOOP: for each link */
-	/* add tagClickHandler as event listener for that link */
-	/* END LOOP: for each link */
 }
 
 addClickListenersToTags();
@@ -236,7 +233,6 @@ function calculateTagsParams(tags){
 }
 
 function calculateTagClass(count, params){
-	//return '<li><a href="#' + count + '"><span>' + params + '</span></a></li>';
 	const normalizedCount = count - params.min;
 	const normalizedMax = params.max - params.min;
 	const percentage = normalizedCount / normalizedMax;
@@ -335,19 +331,11 @@ function generateAuthors(){
 		const articleList = article.querySelector(articleAutorsSelector);
 		let htmlList = '';
 		const authors = article.getAttribute('data-author');
-//		for(let i = 0; i < articleAuthors.length; i++) {
-			//const author = '<li><a href="#"><span>' + authors + '</span></a></li>';
-			//htmlList += '<li>' + author + '</li>';
 			if(!articleAuthors.hasOwnProperty(authors)){
-				/* [NEW] add generated code to allTags array */
 				articleAuthors[authors] = 1;
 					  } else {
 						articleAuthors[authors]++;
 					  }
-			  //	articleList.innerHTML += htmlList;
-//
-//		}
-		//		htmlList += generateAuthorLink(articleAuthors);
 		articleList.innerHTML += htmlList;
 
 	}
@@ -358,50 +346,10 @@ function generateAuthors(){
 	for ( let authors in articleAuthors){
 		articleAuthorsHTML += authors + '(' + articleAuthors + ')';
 		console.log ('authorsHTML')
-		const authorsLinkHTML = '<li>' + calculateAuthorParams(articleAuthors, authorsParams) + '</li>';
+		const authorsLinkHTML = '<li>' + calculateAuthorsParams(articleAuthors, authorsParams) + '</li>';
 		articleAuthorsHTML += authorsLinkHTML;
 
 	}
 	articleList.innerHTML = articleAuthorsHTML;
 
 }
-/*const tagsLinkList  = document.querySelector(".list.tags")
-//  <li><a href="#">design</a> <span>(6)</span></li>
-const articles =  document.querySelectorAll("article")
-const countTags = []
-for(let i = 0; i < articles.length ;i++) {
-	const tags = articles[i].getAttribute("data-tags").split(" ")
-	for(let m = 0; m < tags.length; m++) {
-		let isInside = false
-		for(let k = 0; k < countTags.length; k++) {
-			if(countTags[k].name == tags[m]) {
-				isInside = true
-				countTags[k].count++
-			}
-		}
-		if(isInside == false) {
-			countTags.push({
-				name: tags[m],
-				count: 1
-			})
-		}
-	}
-	
-	//
-}*/
-//const tagsParms = calculateTagsParams(tags)
-//console.log('tagsParams:', tagsParams)
-//for(let tag in tags){
-//	console.log(tag + ' is used ' + tags[tag] + ' times');
-//	if(tags[tag] > params.max){
-//		params.max = tags[tag];
-//	  }
-//	  if(tags[tag] . params.min){
-//		params.min = tags[tag];
-//	  }
-//  }
-/*for(let i = 0; i < countTags.length; i++){
-	tagsLinkList.innerHTML += `<li><a href="#">${countTags[i].name}</a> <span>(${countTags[i].count})</span></li>`
-}
-
-console.log(countTags)*/
