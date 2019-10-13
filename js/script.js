@@ -219,16 +219,6 @@ function authorClickHandler(e) {
 	generateTitleLinksFilter(`[data-author='${tag}']`, tag, "author")
 }
 
-const authorsLinks = document.querySelectorAll(".list.authors a")
-console.log(authorsLinks)
-
-for(let i = 0; i < authorsLinks.length; i++) {
-	authorsLinks[i].addEventListener("click", function(e) {
-		let author = this.querySelector("span").innerText
-		console.log(author)
-		generateTitleLinksFilter(`[data-author='${author}']`, author, "author")
-	})
-}
 
 function calculateTagsParams(tags){
 	const params = { max: 0, min: 999999 }
@@ -304,6 +294,68 @@ function generateTags(){
 	tagList.innerHTML = allTagsHTML;
 
   }
+
+  function calculateAuthorsParams(articleauthors){
+	const params = { max: 0, min: 999999 }
+	for(let author in articleAuthors){
+		if(articleAuthors > params.max){
+			params.max = articleAuthors;
+		  }
+		if(articleAuthors < params.min){
+			params.min = articleAuthors;
+		  }
+		console.log(author + ' is used ' + articleAuthors + ' times');
+	  }
+	  return params;
+}
+//const authorsLinks = document.querySelectorAll(".list.authors a")
+//console.log(authorsLinks)
+//for(let i = 0; i < authorsLinks.length; i++) {
+//	authorsLinks[i].addEventListener("click", function(e) {
+////		let author = this.querySelector("span").innerText
+//		console.log(author)
+//		generateTitleLinksFilter(`[data-author='${author}']`, author, "author")
+//	})
+//}
+
+function generateAuthors(){
+	const articleList = document.getElementsByTagName('article');
+	for (const article of articleList) {
+		let articleAuthors = {};
+
+		const articleList = article.querySelector(articleAutorsSelector);
+		let htmlList = '';
+		const authors = article.getAttribute('data-author');
+//		for(let i = 0; i < articleAuthors.length; i++) {
+			const author = '<li><a href="#"><span>' + authors + '</span></a></li>';
+			htmlList += '<li>' + author + '</li>';
+			if(!articleAuthors.hasOwnProperty(author)){
+				/* [NEW] add generated code to allTags array */
+				articleAuthors[author] = 1;
+					  } else {
+						articleAuthors[author]++;
+					  }
+			  //	articleList.innerHTML += htmlList;
+//
+//		}
+		//		htmlList += generateAuthorLink(articleAuthors);
+		articleList.innerHTML += htmlList;
+
+	}
+	//const articleList = document.querySelector('..authors');
+
+	const authorsParams = calculateAuthorsParams(articleAuthors);
+	let authorsHTML = '';
+	for ( let author in articleAuthors){
+		articleAuthorsHTML += author + '(' + articleAuthors + ')';
+		console.log ('authorsHTML')
+		const articleLinkHTML = '<li>' + calculateAuthorClass(articleAuthors, authorParams) + '</li>';
+		articleAuthorsHTML += articleLinkHTML;
+
+	}
+	articleList.innerHTML = authorsHTML;
+
+}
 /*const tagsLinkList  = document.querySelector(".list.tags")
 //  <li><a href="#">design</a> <span>(6)</span></li>
 const articles =  document.querySelectorAll("article")
