@@ -235,7 +235,13 @@ function calculateTagsParams(tags){
 }
 
 function calculateTagClass(count, params){
-	return '<li><a href="#' + count + '"><span>' + params + '</span></a></li>';
+	//return '<li><a href="#' + count + '"><span>' + params + '</span></a></li>';
+	const normalizedCount = count - params.min;
+	const normalizedMax = params.max - params.min;
+	const percentage = normalizedCount / normalizedMax;
+	const classNumber = Math.floor( percentage * (optCloudClassCount - 1) + 1 );
+	return '<li><a href="#' + optCloudClassPrefix + '"><span>' + classNumber + '</span></a></li>';
+	
 }
 
 function generateTags(){
