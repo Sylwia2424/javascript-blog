@@ -54,9 +54,9 @@ const titleListSelector = '.titles',
 
 
 function generateTitleLink(articleId, articleTitle) {
-	return '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
-//	const linkHTMLData = {id: articleId, title: articleTitle};
-//const linkHTML = templates.articleLink(linkHTMLData);
+	//return '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+	const linkHTMLData = { articleId, articleTitle};
+const linkHTML = templates.articleLink(linkHTMLData);
 }
 
 function generateTitleLinks(customSelector = '') {
